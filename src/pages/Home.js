@@ -9,8 +9,15 @@ function Home() {
       <Navbar />
 
       <div className="homeContent">
-        <div className="homeCell cellOne">1</div>
-        <div className="homeCell cellTwo">2</div>
+        <div className="homeCell cellOne">
+          <div className="Title">
+
+          </div>
+          <div className="Description">
+            
+          </div>
+        </div>
+        <div className="homeCell cellTwo"></div>
         <div className="homeCell">3</div>
         <div className="homeCell">4</div>
       </div>
