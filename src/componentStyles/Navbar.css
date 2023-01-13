@@ -1,0 +1,71 @@
+.navbar {
+    height: 10vh;
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+}
+
+.logoSection {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #07080e;
+}
+
+.logoSection img{
+    margin: 0 10px 0 0;
+}
+
+.links {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+
+.link {
+    margin: 0 20px;
+    text-decoration: none;
+    color: #07080e;
+}
+
+.link:hover {
+    color: #9057c5;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.button {
+    color: white;
+    margin: 0 10px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 1px solid transparent;
+    transition: 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: transparent;
+}
+
+.signinBtn {
+    background-color: rgb(7, 8, 14, 0.7);
+}
+
+.signinBtn:hover {
+    color: rgb(7, 8, 14, 0.7);
+    border: 1px solid rgb(7, 8, 14, 0.7);
+}
+
+.regBtn {
+    background-color: #9057c5;
+}
+
+.regBtn:hover {
+    color: #9057c5;
+    border: 1px solid #9057c5;
+}
+
