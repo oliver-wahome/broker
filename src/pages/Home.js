@@ -1,9 +1,31 @@
 import React from 'react';
+import { useRef, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import '../pageStyles/Home.css';
 
+
 function Home() {
+  let emailInput = useRef();
+  let passwordInput = useRef();
+
+  //this function gets the email and password input of the subcription form
+  //for now the email and password is logged and alerted
+  const handleSubmit = (event) => {
+    event.preventDefault(); //prevents page from reload on submit
+    //getting the current email and password input values
+    let email = emailInput.current.value;
+    let password = passwordInput.current.value;
+
+    console.log(`${email} ${password}`);
+
+    alert(`${email} ${password}`);
+    
+    //setting the both input values to nothing after submitting
+    emailInput.current.value = "";
+    passwordInput.current.value = "";
+  }
+
   return (
     <div className="home">
       <Navbar />
@@ -20,10 +42,10 @@ function Home() {
             technology never seen before
           </p>
 
-          <form className="cellOneRow">
-            <input type="email" placeholder="Enter your email"/>
-            <input type="password" placeholder="Enter password" />
-            <button>subscribe</button>
+          <form onSubmit={handleSubmit} className="cellOneRow">
+            <input className="subInput" id="emailInput" type="email" ref={emailInput} placeholder="Enter your email"/>
+            <input className="subInput" id="passwordInput" type="password" ref={passwordInput} placeholder="Enter password" />
+            <button className="subBtn">subscribe</button>
           </form>
         </div>
         <div className="homeCell cellTwo"></div>
@@ -54,7 +76,7 @@ function Home() {
         </div>
       </div>
 
-      <Footer />
+      {/* <Footer /> */}
 
     </div>
   )

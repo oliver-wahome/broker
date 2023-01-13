@@ -17,6 +17,7 @@
     justify-items: start;
 }
 
+/* start of elements in cellOne */
 .cellOneRow {
     height: 100%;
 }
@@ -34,7 +35,7 @@
 .Description {
     display: grid;
     align-items: center;
-    justify-items: end;
+    justify-items: center;
     width: 80%;
 }
 
@@ -43,6 +44,34 @@ form {
     align-items: center;
     width: 100%;
 }
+
+.subInput {
+    width: 34%;
+    outline: none;
+    padding: 10px 15px;
+    border: 1px solid #9067C6;
+}
+
+.subInput::placeholder{
+    color: #9067C6;
+}
+
+.subBtn {
+    outline: none;
+    padding: 10px 15px;
+    color: white;
+    background-color: #9067C6;
+    border: 1px solid #9067C6;
+    transition: 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+.subBtn:hover {
+    background-color: rgb(144, 103, 198, 0.75);
+}
+
+
+/* end of elements in cellOne */
 
 .cellTwo {
     background-image: url("../images/homeContentImage1.jpg");
