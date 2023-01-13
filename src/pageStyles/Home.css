@@ -26,6 +26,9 @@
     align-items: center;
     width: 100%;
     font-size: 65px;
+    line-height: 72px;
+    position: relative;
+    left: -5px;
 }
 
 .Description {
@@ -54,23 +57,32 @@ form {
 .cellFour {
     height: 100%;
     display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .cellFourColumn {
-    width: 33%;
-    height: 100%;
-    display: grid;
-    grid-template-rows: 50% 50%;
+    width: 30%;
+    height: 90%;
     text-align: center;
-    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    border: 1px solid #9067C6;
 }
 
 .cellFourColumn h3{
+    padding: 0;
+    margin: 0;
     height: fit-content;
     font-size: 50px;
     color: #9067C6;
 }
 
 .cellFourColumn p {
+    padding: 0;
+    margin: 0;
     width: 80%;
 }
