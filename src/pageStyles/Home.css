@@ -2,22 +2,75 @@
     height: 90vh;
     display: grid;
     grid-template-columns: 45% 55%;
-    grid-template-rows: 33% 34% 33%;
+    grid-template-rows: 60% 40%;
 }
 
 .homeCell {
     display: grid;
     align-items: center;
     justify-items: center;
-    border: 1px solid blue;
 }
 
 .cellOne {
-    grid-row: 1 / span 2;
+    display: grid;
+    grid-template-rows: 60% 20% 20%;
+    justify-items: start;
+}
+
+.cellOneRow {
+    height: 100%;
+}
+
+.Title {
+    display: grid;
+    align-items: center;
+    width: 100%;
+    font-size: 65px;
+}
+
+.Description {
+    display: grid;
+    align-items: center;
+    justify-items: end;
+    width: 80%;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    width: 100%;
 }
 
 .cellTwo {
-    grid-row: 1 / span 2;
     background-image: url("../images/homeContentImage1.jpg");
     background-size: cover;
+}
+
+.cellThree {
+    background-image: url("../images/homeContentImage2.jpg");
+    background-size: cover;
+}
+
+.cellFour {
+    height: 100%;
+    display: flex;
+}
+
+.cellFourColumn {
+    width: 33%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 50% 50%;
+    text-align: center;
+    justify-items: center;
+}
+
+.cellFourColumn h3{
+    height: fit-content;
+    font-size: 50px;
+    color: #9067C6;
+}
+
+.cellFourColumn p {
+    width: 80%;
 }
