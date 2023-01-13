@@ -2,6 +2,7 @@
     height: 10vh;
     display: grid;
     grid-template-columns: 30% 40% 30%;
+    border: 1px solid black;
 }
 
 .logoSection {
@@ -61,6 +62,7 @@
 }
 
 .regBtn {
+    margin-right: 0;
     background-color: #9057c5;
 }
 

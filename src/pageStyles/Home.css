@@ -1,3 +1,21 @@
 .homeContent {
-    height: 80vh;
+    height: 90vh;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 33% 34% 33%;
+}
+
+.homeCell {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    border: 1px solid blue;
+}
+
+.cellOne {
+    grid-row: 1 / span 2;
+}
+
+.cellTwo {
+    grid-row: 1 / span 2;
 }
