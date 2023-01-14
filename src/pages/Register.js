@@ -1,5 +1,6 @@
 import React from 'react';
-import logo from '../images/brokerIcon-amethyst.png';
+import brokerLogo from '../images/brokerIcon-amethyst.png';
+import googleIcon from '../images/googleIcon.png';
 import { Link } from 'react-router-dom';
 import '../App.css';
 import '../pageStyles/Register.css';
@@ -10,7 +11,7 @@ function Register(){
         <div className="registerContainer">
             <div className="register">
                 <Link to="/" className="logoSection">
-                    <img src={logo} alt="logo-icon" height="30px" width="30px" />
+                    <img src={brokerLogo} alt="logo-icon" height="30px" width="30px" />
                     <p>Broker</p>
                 </Link>
 
@@ -41,7 +42,9 @@ function Register(){
                 </div>
 
                 <div className="googleBtn">
-                    <img src="" alt="google-icon" />
+                    <div className="googleImgContainer">
+                        <img src={googleIcon} alt="google-icon" height="20px" width="20px" />
+                    </div>
                     <p>Sign up with Google</p>
                 </div>
 
