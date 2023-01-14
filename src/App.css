@@ -7,3 +7,15 @@
 .appContainer {
     padding: 0 5vw;
 }
+
+/* logoSection styling to be used in various pages */
+.logoSection {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #07080e;
+}
+
+.logoSection img{
+    margin: 0 10px 0 0;
+}

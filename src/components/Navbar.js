@@ -2,6 +2,8 @@ import React from 'react';
 import logo from '../images/brokerIcon-amethyst.png';
 import { Link } from 'react-router-dom';
 import '../componentStyles/Navbar.css';
+import '../App.css';
+//import { faBorderNone } from '@fortawesome/free-solid-svg-icons';
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 

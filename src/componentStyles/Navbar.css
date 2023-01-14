@@ -4,17 +4,6 @@
     grid-template-columns: 30% 40% 30%;
 }
 
-.logoSection {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #07080e;
-}
-
-.logoSection img{
-    margin: 0 10px 0 0;
-}
-
 .links {
     display: flex; 
     align-items: center;
