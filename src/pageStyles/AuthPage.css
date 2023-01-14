@@ -1,8 +1,8 @@
-.registerContainer {
+.authPageContainer {
     display: flex;
     justify-content: center;
 }
-.register {
+.authPage {
     min-height: 100vh;
     width: 50%;
     padding: 20px 0 0;
@@ -19,20 +19,20 @@
 }
 
 /* start registerContent */
-.registerTitle {
-    margin: 16px 0;
+.authTitle {
+    margin: 16px 0 0 0;
     font-size: 33px;
     color: #1c252c;
 }
 
-.registerText {
-    margin: 0 0 16px;
+.authText {
+    margin: 10px 0;
     font-size: 23px;
     color: #68757d;
 }
 /* end of registerContent */
 
-.regForm {
+.authForm {
     width: 65%;
     display: flex;
     flex-direction: column;
@@ -40,7 +40,7 @@
 }
 
 /* start of form */
-.regForm input {
+.authForm input {
     margin: 10px 0 5px;
     width: 100%;
     outline: none;
@@ -50,11 +50,15 @@
     font-size: 16px;
 }
 
-.regForm input::placeholder {
+.authForm input::placeholder {
     color: #9057c5;
 }
 
-.registerPasswordLabelSection {
+.authForm input:focus {
+    box-shadow: 0 0 10px #9057c5;
+}
+
+.authPasswordLabelSection {
     padding: 0;
     margin: 0 0 10px 0;
     display: flex;
@@ -63,22 +67,22 @@
     width: 100%;
 }
 
-.registerPasswordLabelSection p{
+.authPasswordLabelSection p{
     margin: 0;
     font-size: 14px;
     color: #47545c;
 }
 
-.registerPasswordLabelSection .hide {
+.authPasswordLabelSection .authPassLink {
     color: #9057c5;
 }
 
-.hide:hover {
+.authPasswordLabelSection .authPassLink:hover {
     cursor: pointer;
     text-decoration: underline;
 }
 
-.getStartedBtn {
+.authFormBtn {
     outline: none;
     margin: 10px 0 0 0;
     padding: 10px;
@@ -92,7 +96,7 @@
     transition: 0.2s ease-in-out;
 }
 
-.getStartedBtn:hover {
+.authFormBtn:hover {
     cursor: pointer;
     background-color: #712cb3;
 }
@@ -146,7 +150,7 @@
     font-size: 16px;
 }
 
-.regFooterText {
+.authFooterText {
     margin: 15px;
     width: 65%;
     font-size: 14px;
@@ -154,11 +158,16 @@
     color: #47545c;
 }
 
-.regFooterText span {
+.authFooterText span {
+    text-decoration: none;
     color: #712cb3;
 }
 
-.regFooterText span:hover {
+.authFooterText span:hover {
     text-decoration: underline;
     cursor: pointer;
+}
+
+.authFooterLink {
+    text-decoration: none;
 }
