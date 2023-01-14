@@ -42,7 +42,7 @@ function Home() {
             technology never seen before
           </p>
 
-          <form onSubmit={handleSubmit} className="cellOneRow">
+          <form onSubmit={handleSubmit} className="homeForm cellOneRow">
             <input className="subInput" id="emailInput" type="email" ref={emailInput} placeholder="Enter your email"/>
             <input className="subInput" id="passwordInput" type="password" ref={passwordInput} placeholder="Enter password" />
             <button className="subBtn">subscribe</button>

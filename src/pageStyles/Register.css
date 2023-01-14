@@ -10,7 +10,6 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    border: 1px solid black;
 }
 
 .logoSection p{
@@ -33,7 +32,7 @@
 }
 /* end of registerContent */
 
-form {
+.regForm {
     width: 65%;
     display: flex;
     flex-direction: column;
@@ -41,7 +40,7 @@ form {
 }
 
 /* start of form */
-form input {
+.regForm input {
     margin: 10px 0 5px;
     width: 100%;
     outline: none;
@@ -51,7 +50,7 @@ form input {
     font-size: 16px;
 }
 
-form input::placeholder {
+.regForm input::placeholder {
     color: #9057c5;
 }
 
@@ -104,7 +103,7 @@ form input::placeholder {
     align-items: center;
     justify-content: space-between;
     width: 65%;
-    margin: 15px 0;
+    margin: 5px 0;
     color: #47545c;
 }
 
@@ -145,4 +144,21 @@ form input::placeholder {
     color: white;
     margin: 0;
     font-size: 16px;
+}
+
+.regFooterText {
+    margin: 15px;
+    width: 65%;
+    font-size: 14px;
+    text-align: center;
+    color: #47545c;
+}
+
+.regFooterText span {
+    color: #712cb3;
+}
+
+.regFooterText span:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }

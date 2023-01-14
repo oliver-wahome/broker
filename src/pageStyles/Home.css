@@ -39,7 +39,7 @@
     width: 80%;
 }
 
-form {
+.homeForm {
     display: flex;
     align-items: center;
     width: 100%;

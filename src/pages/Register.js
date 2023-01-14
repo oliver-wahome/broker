@@ -25,12 +25,12 @@ function Register(){
                     </p>
                 </div>
 
-                <form>
+                <form className="regForm">
                     <input id="registerEmailInput" type="email" placeholder="Email" required/>
                     <input id="registerPasswordInput" type="password" placeholder="Password" required/>
                     <div className="registerPasswordLabelSection">
                         <p>At least 8 characters, but longer is better</p>
-                        <p className="hide">Hide</p>
+                        <p className="hide">Show</p>
                     </div>
                     <button className="getStartedBtn">Get started</button>
                 </form>
@@ -45,15 +45,15 @@ function Register(){
                     <div className="googleImgContainer">
                         <img src={googleIcon} alt="google-icon" height="20px" width="20px" />
                     </div>
-                    <p>Sign up with Google</p>
+                    <p>Register with Google</p>
                 </div>
 
-                <p className="termsOfService">
+                <p className="regFooterText termsOfService">
                     By registering, you are indicating that you have read and agree
                     to the <span>Terms of Use</span> and <span>Privacy Policy</span>.
                 </p>
 
-                <p className="registerLink">
+                <p className="regFooterText registerLink">
                     Already have an account? <span>Sign in now.</span>
                 </p>
             </div>
