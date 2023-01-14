@@ -25,17 +25,14 @@ function Register(){
                 </div>
 
                 <form>
-                    <input id="registerEmailInput" type="text" placeholder="Email" />
-                    <input id="registerPasswordInput" type="text" placeholder="Password" />
+                    <input id="registerEmailInput" type="email" placeholder="Email" required/>
+                    <input id="registerPasswordInput" type="password" placeholder="Password" required/>
                     <div className="registerPasswordLabelSection">
-                        <label htmlFor="registerPasswordInput">At least 8 characters, but longer is better</label>
-                        <p className="registerPasswordHide">Hide</p>
+                        <p>At least 8 characters, but longer is better</p>
+                        <p className="hide">Hide</p>
                     </div>
+                    <button className="getStartedBtn">Get started</button>
                 </form>
-
-                <div className="getStartedBtn">
-                    Get started
-                </div>
 
                 <div className="orDivider">
                     <div className="line"></div>
@@ -43,7 +40,7 @@ function Register(){
                     <div className="line"></div>
                 </div>
 
-                <div className="getStartedBtn">
+                <div className="googleBtn">
                     <img src="" alt="google-icon" />
                     <p>Sign up with Google</p>
                 </div>
