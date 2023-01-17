@@ -26,18 +26,18 @@ function Register(){
             // Signed in 
             const user = userCredential.user;
             console.log(email + " "+ password + " " + user.uid);
-            navigate("/dashboard");
-            // ...
+            navigate("/dashboard");//redirecting to the dashboard
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            // ..
+
+            console.log(errorCode + " "+errorMessage);
         });
 
-        //setting the both input values to nothing after submitting
-        regEmailInput.current.value = "";
-        regPasswordInput.current.value = "";
+        // setting the both input values to nothing after submitting
+        // regEmailInput.current.value = "";
+        // regPasswordInput.current.value = "";
       }
 
     return(

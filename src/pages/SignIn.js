@@ -1,12 +1,42 @@
 import React from 'react';
+import { useRef } from 'react';
 import brokerLogo from '../images/brokerIcon-amethyst.png';
 import googleIcon from '../images/googleIcon.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import '../firebase';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import '../App.css';
 import '../pageStyles/AuthPage.css';
 import '../pageStyles/SignIn.css';
 
 function SignIn (){
+
+    let signinEmailInput = useRef();
+    let signinPasswordInput = useRef();
+    let navigate = useNavigate();
+
+    const handleSubmit = (event) => {
+        event.preventDefault(); //prevents page from reload on submit
+        let email = signinEmailInput.current.value;
+        let password = signinPasswordInput.current.value;
+
+        const auth = getAuth();
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            console.log(email + " "+ password + " " + user.uid);
+            navigate("/dashboard");//redirecting to the dashboard
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+
+            console.log(errorCode + " "+errorMessage);
+        });
+
+      }
+
 
     return(
         <div className="authPageContainer signinContainer">
@@ -22,9 +52,9 @@ function SignIn (){
                     </h2>
                 </div>
 
-                <form className="authForm signinForm">
-                    <input type="email" placeholder="Email" autoFocus required/>
-                    <input type="password" placeholder="Password" required/>
+                <form onSubmit={handleSubmit} className="authForm signinForm">
+                    <input ref={signinEmailInput} type="email" placeholder="Email" autoFocus required/>
+                    <input ref={signinPasswordInput} type="password" placeholder="Password" required/>
                     <div className="authPasswordLabelSection">
                         <p className="authPassLink">Forgot it?</p>
                     </div>
