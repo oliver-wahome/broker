@@ -3,8 +3,9 @@ import { useRef } from 'react';
 import brokerLogo from '../images/brokerIcon-amethyst.png';
 import googleIcon from '../images/googleIcon.png';
 import { Link, useNavigate } from 'react-router-dom';
-import '../firebase';
+import { db } from '../firebase';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore"; 
 import '../App.css';
 import '../pageStyles/AuthPage.css';
 
@@ -25,8 +26,19 @@ function Register(){
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
-            console.log(email + " "+ password + " " + user.uid);
-            navigate("/dashboard");//redirecting to the dashboard
+            const userId = user.uid;
+
+            // Add a new document in collection "users"
+            setDoc(doc(db, "users", userId), {
+                email: email,
+                userId: userId
+            }).then(() => {
+                console.log(email + " "+ password + " " + user.uid);
+                navigate("/dashboard");//redirecting to the dashboard
+            }).catch((error) => {
+                console.log(error.message);
+            })
+  
         })
         .catch((error) => {
             const errorCode = error.code;
