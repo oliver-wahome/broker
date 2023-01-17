@@ -1,12 +1,44 @@
 import React from 'react';
+import { useRef } from 'react';
 import brokerLogo from '../images/brokerIcon-amethyst.png';
 import googleIcon from '../images/googleIcon.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import '../firebase';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import '../App.css';
 import '../pageStyles/AuthPage.css';
 
 
 function Register(){
+
+    let regEmailInput = useRef();
+    let regPasswordInput = useRef();
+    let navigate = useNavigate();
+
+    const handleSubmit = (event) => {
+        event.preventDefault(); //prevents page from reload on submit
+        let email = regEmailInput.current.value;
+        let password = regPasswordInput.current.value;
+
+        const auth = getAuth();
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            console.log(email + " "+ password + " " + user.uid);
+            navigate("/dashboard");
+            // ...
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // ..
+        });
+
+        //setting the both input values to nothing after submitting
+        regEmailInput.current.value = "";
+        regPasswordInput.current.value = "";
+      }
 
     return(
         <div className="authPageContainer">
@@ -26,9 +58,9 @@ function Register(){
                     </p>
                 </div>
 
-                <form className="authForm">
-                    <input type="email" placeholder="Email" autoFocus required/>
-                    <input type="password" placeholder="Password" required/>
+                <form onSubmit={handleSubmit} className="authForm">
+                    <input ref={regEmailInput} type="email" placeholder="Email" autoFocus required/>
+                    <input ref={regPasswordInput} type="password" placeholder="Password" required/>
                     <div className="authPasswordLabelSection">
                         <p>At least 8 characters, but longer is better</p>
                         <p className="authPassLink">Show</p>
