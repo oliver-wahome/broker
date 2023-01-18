@@ -4,10 +4,12 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import SignIn from './pages/SignIn';
 import Register from './pages/Register';
+import OnBoarding from './pages/OnBoarding';
 import './App.css';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 
 
 function App() {
@@ -21,6 +23,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/onboarding" element={<OnBoarding />} />
         </Routes>
       </BrowserRouter>
     </div>

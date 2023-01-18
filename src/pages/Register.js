@@ -34,7 +34,7 @@ function Register(){
                 userId: userId
             }).then(() => {
                 console.log(email + " "+ password + " " + user.uid);
-                navigate("/dashboard");//redirecting to the dashboard
+                navigate("/onboarding");//redirecting to the dashboard
             }).catch((error) => {
                 console.log(error.message);
             })
