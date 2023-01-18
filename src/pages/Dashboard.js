@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../firebase';
 import { getAuth, signOut } from "firebase/auth";
 
@@ -30,6 +30,8 @@ function Dashboard() {
             Dashboard
 
             <button onClick={logOut}>logout</button>
+
+            <Link to="/profile">go to profile</Link>
 
             <Footer />
         </div>
