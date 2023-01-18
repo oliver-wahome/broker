@@ -1,10 +1,13 @@
 import React from 'react';
 import { useRef } from 'react';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 function OnBoarding(){
     let firstName = useRef();
     let lastName = useRef();
     let businessName = useRef();
+    let navigate = useNavigate();
     
 
     const textStyle = {
@@ -19,8 +22,19 @@ function OnBoarding(){
         let lName = lastName.current.value;
         let bName = businessName.current.value;
 
-        
-    }
+        const auth = getAuth();
+        onAuthStateChanged(auth, (user) => {
+            if(user){
+                const uid = user.uid;
+                console.log(uid);
+            }
+            else {
+                console.log("not signed in");
+                navigate("/signin");
+            }
+        });
+
+    }   
 
 
     return(
