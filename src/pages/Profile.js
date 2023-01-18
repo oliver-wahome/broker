@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+// import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 function Profile() {
+
+    useEffect(() => {
+        console.log("component loaded");;
+    })
+
     return(
-        <div>
+        <div className="profile">
             Profile Page
         </div>
     );
