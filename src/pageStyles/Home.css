@@ -1,5 +1,5 @@
 .homeContent {
-    height: 90vh;
+    min-height: 90vh;
     display: grid;
     grid-template-columns: 45% 55%;
     grid-template-rows: 60% 40%;
