@@ -43,10 +43,7 @@ function Profile() {
                 }
             }, []);
 
-            setExecuted(true);
-        }
-        else {
-            console.log("executed");
+            setExecuted({run: true});
         }
         
     }, [execCheck]);

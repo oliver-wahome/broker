@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import { Link, useNavigate } from 'react-router-dom';
 import '../firebase';
 import { getAuth, signOut } from "firebase/auth";
+import '../pageStyles/Dashboard.css';
 
 
 
@@ -27,11 +28,11 @@ function Dashboard() {
         <div className="dashboard">
             <Navbar />
 
-            Dashboard
-
-            <button onClick={logOut}>logout</button>
-
-            <Link to="/profile">go to profile</Link>
+            <div className="dashboardContent">
+                Dashboard
+                <button onClick={logOut}>logout</button>
+                <Link to="/profile">go to profile</Link>
+            </div>
 
             <Footer />
         </div>
