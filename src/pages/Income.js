@@ -1,14 +1,21 @@
 import React from 'react';
+import DashboardMenu from '../components/DashboardMenu';
+import '../pageStyles/Dashboard.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Income() {
   return (
-    <div className="income">
-        <h1>Income Page</h1>
+    <div className="dashboardPage income">
 
-        <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Add Income
-        </button>
+        <DashboardMenu />
+
+        <div className="dashboarBody">
+            <h1>Income Page</h1>
+
+            <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Add Income
+            </button>
+        </div>
 
         {/* Add Income Modal form */}
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
