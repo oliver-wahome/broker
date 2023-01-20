@@ -1,7 +1,18 @@
-.dashboard {
+.dashboardPage {
     min-height: 100vh;
+    display: flex;
 }
 
-.dashboardContent {
-    min-height: 80vh;
+.dashboardMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    background-color: rgba(144, 103, 197, 0.3);
+}
+
+.dashboardBody {
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
 }
