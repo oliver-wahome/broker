@@ -18,7 +18,7 @@ function AddIncome() {
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>Add Income</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
