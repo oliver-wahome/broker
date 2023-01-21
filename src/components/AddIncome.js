@@ -38,7 +38,7 @@ function AddIncome() {
                             <Form.Check type="checkbox" label="Check me out" />
                         </Form.Group>
                         <Button variant="primary" type="submit">
-                            Submit
+                            Add Income
                         </Button>
                     </Form>
                 </Modal.Body>
