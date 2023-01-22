@@ -4,7 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function AddIncome() {
+function AddIncome(props) {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -16,25 +16,35 @@ function AddIncome() {
                 Add Income
             </Button>
 
-            <Modal show={show} onHide={handleClose}>
+            <Modal {...props} aria-labelledby="contained-modal-title-vcenter" show={show} onHide={handleClose} centered>
                 <Modal.Header closeButton>
                     <Modal.Title>Add Income</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
+                        <Form.Group className="mb-3" controlId="clientName">
+                            <Form.Label>Client Name</Form.Label>
+                            <Form.Control type="text" placeholder="Enter client name" />
+                        </Form.Group>
+
                         <Form.Group className="mb-3" controlId="incomeAmount">
-                            <Form.Label>Income Amount</Form.Label>
+                            <Form.Label>Amount</Form.Label>
                             <Form.Control type="number" placeholder="Enter income amount" />
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="incomeDate">
-                            <Form.Label>Income Date</Form.Label>
+                            <Form.Label>Date</Form.Label>
                             <Form.Control type="date" placeholder="Enter income payment date" />
                         </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" />
+                        <Form.Group className="mb-3" controlId="incomeDescription">
+                            <Form.Label>Description</Form.Label>
+                            <Form.Control type="text" placeholder="Enter a description of the income" />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="incomeTime">
+                            <Form.Label>Time</Form.Label>
+                            <Form.Control type="time" placeholder="Enter time of income payment" />
                         </Form.Group>
                         
                         <Button variant="primary" type="submit" className="float-end">
