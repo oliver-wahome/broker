@@ -1,18 +1,13 @@
 import React from 'react';
-import logo from '../images/brokerIcon-amethyst.png';
 import { Link } from 'react-router-dom';
 
 function DashboardMenu(){
     return(
         <div className="dashboardMenu">
-            <Link to="/" className="logoSection">
-                <img src={logo} alt="logo-icon" height="30px" width="30px" />
-                <p>Broker</p>
-            </Link>
-            <Link to="/dashboard">Dashboard</Link>
-            <Link to="/income">Income</Link>
-            <Link to="/expenses">Expenses</Link>
-            <Link to="/overview">Overview</Link>
+            <Link to="/dashboard" className="dashboardMenuItem">Dashboard</Link>
+            <Link to="/income" className="dashboardMenuItem">Income</Link>
+            <Link to="/expenses" className="dashboardMenuItem">Expenses</Link>
+            <Link to="/overview" className="dashboardMenuItem">Overview</Link>
         </div>
     );
 }

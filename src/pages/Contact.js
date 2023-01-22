@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 
 function Contact() {
   return (
-    <div className="contact">
+    <div className="contact pageContainer">
         <Navbar />
 
         Contact
