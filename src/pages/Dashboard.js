@@ -1,5 +1,4 @@
 import React from 'react';
-import '../firebase';
 import DashboardNavbar from '../components/DashboardNavbar';
 import DashboardMenu from '../components/DashboardMenu';
 import '../pageStyles/Dashboard.css';
