@@ -11,7 +11,7 @@ function DashboardMenu(){
             </Link>
             <Link to="/income">Income</Link>
             <Link to="/expenses">Expenses</Link>
-            <Link to="/">Overview</Link>
+            <Link to="/overview">Overview</Link>
         </div>
     );
 }

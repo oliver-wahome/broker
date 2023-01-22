@@ -5,7 +5,7 @@ import '../pageStyles/Dashboard.css';
 
 function Expenses() {
     return (
-      <div className="dashboardPage income">
+      <div className="dashboardPage expenses">
           <DashboardMenu />
   
           <div className="dashboardBody">
