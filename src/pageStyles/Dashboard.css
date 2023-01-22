@@ -7,14 +7,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 30%;
+    width: 25%;
     background-color: rgba(144, 103, 197, 0.3);
 }
 
 .dashboardBody {
-    width: 70%;
+    width: 75%;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
 }
 
 .dashboardBodyHeader {

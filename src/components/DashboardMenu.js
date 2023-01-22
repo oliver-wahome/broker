@@ -9,6 +9,7 @@ function DashboardMenu(){
                 <img src={logo} alt="logo-icon" height="30px" width="30px" />
                 <p>Broker</p>
             </Link>
+            <Link to="/dashboard">Dashboard</Link>
             <Link to="/income">Income</Link>
             <Link to="/expenses">Expenses</Link>
             <Link to="/overview">Overview</Link>
