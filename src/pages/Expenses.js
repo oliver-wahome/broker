@@ -10,7 +10,7 @@ function Expenses() {
   
           <div className="dashboardBody">
             <div className="dashboardBodyHeader">
-                <h1>Income Page</h1>
+                <h1>Expense Page</h1>
                 <AddExpenses />
             </div>
           </div>

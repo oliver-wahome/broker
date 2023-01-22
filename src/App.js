@@ -8,6 +8,7 @@ import OnBoarding from './pages/OnBoarding';
 import Profile from './pages/Profile';
 import Income from './pages/Income';
 import Expenses from './pages/Expenses';
+import Overview from './pages/Overview';
 import './App.css';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -30,6 +31,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/income" element={<Income />} />
           <Route path="/expenses" element={<Expenses />} />
+          <Route path="/overview" element={<Overview />} />
         </Routes>
       </BrowserRouter>
     </div>
