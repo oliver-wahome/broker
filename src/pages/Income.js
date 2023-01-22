@@ -15,14 +15,12 @@ function Income() {
         <div className="dashboardPage income">
             <DashboardMenu />
 
-            <div className="dashboarBody">
-                <h1>Income Page</h1>
+            <div className="dashboardBody">
 
-                {/* <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Add Income
-                </button> */}
-
-                <AddIncome />
+                <div className="dashboardBodyHeader">
+                    <h1>Income Page</h1>
+                    <AddIncome />
+                </div>
             </div>
         </div>
     )
