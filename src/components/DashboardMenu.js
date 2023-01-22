@@ -10,7 +10,7 @@ function DashboardMenu(){
                 <p>Broker</p>
             </Link>
             <Link to="/income">Income</Link>
-            <Link to="/">Expenses</Link>
+            <Link to="/expenses">Expenses</Link>
             <Link to="/">Overview</Link>
         </div>
     );

@@ -7,6 +7,7 @@ import Register from './pages/Register';
 import OnBoarding from './pages/OnBoarding';
 import Profile from './pages/Profile';
 import Income from './pages/Income';
+import Expenses from './pages/Expenses';
 import './App.css';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/onboarding" element={<OnBoarding />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/income" element={<Income />} />
+          <Route path="/expenses" element={<Expenses />} />
         </Routes>
       </BrowserRouter>
     </div>

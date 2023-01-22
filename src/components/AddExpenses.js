@@ -13,42 +13,37 @@ function AddExpenses(props) {
     return (
         <>
             <Button variant="primary" onClick={handleShow}>
-                Add Income
+                Add Expense
             </Button>
 
             <Modal {...props} aria-labelledby="contained-modal-title-vcenter" show={show} onHide={handleClose} centered>
                 <Modal.Header closeButton>
-                    <Modal.Title>Add Income</Modal.Title>
+                    <Modal.Title>Add Expense</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
-                        <Form.Group className="mb-3" controlId="clientName">
-                            <Form.Label>Client Name</Form.Label>
-                            <Form.Control type="text" placeholder="Enter client name" />
+                        <Form.Group className="mb-3" controlId="expense">
+                            <Form.Label>Expense</Form.Label>
+                            <Form.Control type="text" placeholder="Enter expense" />
                         </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="incomeAmount">
+                        <Form.Group className="mb-3" controlId="expenseAmount">
                             <Form.Label>Amount</Form.Label>
-                            <Form.Control type="number" placeholder="Enter income amount" />
+                            <Form.Control type="number" placeholder="Enter expense amount" />
                         </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="incomeDate">
+                        <Form.Group className="mb-3" controlId="expenseDate">
                             <Form.Label>Date</Form.Label>
                             <Form.Control type="date" />
                         </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="incomeTime">
+                        <Form.Group className="mb-3" controlId="expenseTime">
                             <Form.Label>Time</Form.Label>
-                            <Form.Control type="time" placeholder="Enter time of income payment" />
-                        </Form.Group>
-
-                        <Form.Group className="mb-3" controlId="incomeDescription">
-                            <Form.Label>Description</Form.Label>
-                            <Form.Control type="text" placeholder="Enter a description of the income" />
+                            <Form.Control type="time" placeholder="Enter time of expense payment" />
                         </Form.Group>
                         
                         <Button variant="primary" type="submit" className="float-end">
-                            Add Income
+                            Add Expense
                         </Button>
                     </Form>
                 </Modal.Body>
