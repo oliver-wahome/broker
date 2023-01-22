@@ -4,6 +4,7 @@ import '../firebase';
 import { getAuth, signOut } from "firebase/auth";
 import logo from '../images/brokerIcon-amethyst.png';
 import '../pageStyles/Dashboard.css';
+import '../componentStyles/Navbar.css';
 
 function DashboardNavbar(){
 
@@ -28,8 +29,8 @@ function DashboardNavbar(){
                 <p>Broker</p>
             </Link>
             <div className="dashboardNavbarProfile">
-                <button onClick={logOut}>logout</button>
-                <Link to="/profile">go to profile</Link>
+                <button className="button logoutBtn" onClick={logOut}>logout</button>
+                <Link className="button profileBtn" to="/profile">go to profile</Link>
             </div>
         </div>
     );
