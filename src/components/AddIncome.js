@@ -34,17 +34,17 @@ function AddIncome(props) {
 
                         <Form.Group className="mb-3" controlId="incomeDate">
                             <Form.Label>Date</Form.Label>
-                            <Form.Control type="date" placeholder="Enter income payment date" />
-                        </Form.Group>
-
-                        <Form.Group className="mb-3" controlId="incomeDescription">
-                            <Form.Label>Description</Form.Label>
-                            <Form.Control type="text" placeholder="Enter a description of the income" />
+                            <Form.Control type="date" />
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="incomeTime">
                             <Form.Label>Time</Form.Label>
                             <Form.Control type="time" placeholder="Enter time of income payment" />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="incomeDescription">
+                            <Form.Label>Description</Form.Label>
+                            <Form.Control type="text" placeholder="Enter a description of the income" />
                         </Form.Group>
                         
                         <Button variant="primary" type="submit" className="float-end">
