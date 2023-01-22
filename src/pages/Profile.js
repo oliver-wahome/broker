@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
+import DashboardNavbar from '../components/DashboardNavbar';
+import DashboardMenu from '../components/DashboardMenu';
 
 function Profile() {
     const [user, setUser] = useState({
@@ -49,11 +51,23 @@ function Profile() {
     }, [execCheck]);
 
     return(
-        <div className="profile">
-            <h1>Profile Page</h1>
-            <p>{user.firstName} {user.lastName}</p>
-            <p>{user.businessName}</p>
-            <p>{user.email}</p>
+        <div className="dashboardPage profile">
+
+            <DashboardNavbar />
+
+            <div className="dashboardPageContent">
+                <DashboardMenu />
+                <div className="dashboardBody">
+                    <div className="dashboardBodyHeader">
+                        <h1>Profile Page</h1>
+                    </div>
+                    <div className="dashboardBodyContent">
+                        <p>{user.firstName} {user.lastName}</p>
+                        <p>{user.businessName}</p>
+                        <p>{user.email}</p>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
