@@ -11,9 +11,9 @@ function AddIncome(props) {
     const handleShow = () => setShow(true);
 
     const handleSubmit = (event) => {
-        event.prevent.default();//preventing reloading of webpage onsubmit
-
+        event.preventDefault();//preventing reloading of webpage onsubmit
         
+        console.log("handleSubmit working");
     }
 
     return (
