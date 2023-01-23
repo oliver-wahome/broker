@@ -10,6 +10,12 @@ function AddIncome(props) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const handleSubmit = (event) => {
+        event.prevent.default();//preventing reloading of webpage onsubmit
+
+        
+    }
+
     return (
         <>
             <Button variant="primary" onClick={handleShow}>
@@ -21,7 +27,7 @@ function AddIncome(props) {
                     <Modal.Title>Add Income</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form>
+                    <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3" controlId="clientName">
                             <Form.Label>Client Name</Form.Label>
                             <Form.Control type="text" placeholder="Enter client name" />
