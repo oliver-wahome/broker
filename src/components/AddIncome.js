@@ -39,14 +39,14 @@ function AddIncome(props) {
                     description: description.current.value,
                     userId: user.uid
                 });
+                handleClose();
             }
             else {
                 console.log("not signed in");
+                handleClose();
                 navigate("/signin");
             }
-        })
-
-        handleClose();
+        });
     }
 
     return (

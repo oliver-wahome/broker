@@ -13,42 +13,33 @@ function Profile() {
         email: ""
     });
 
-    let [executed, setExecuted] = useState({run: false});
-    //setExecuted(false);
-    let execCheck = executed.run;
-
     useEffect(() => {
         const auth = getAuth();
-        if(!execCheck){
-            onAuthStateChanged(auth, async function(user) {
-                if(user){
-                    console.log(user.uid);
-                    //getting data from the firestore database
-                    const docRef = doc(db, "users", user.uid);
-                    const docSnap = await getDoc(docRef);
-    
-                    if(docSnap.exists()){
-                        console.log(docSnap.data());
-                        setUser({ 
-                            firstName: docSnap.data().firstName, 
-                            lastName: docSnap.data().lastName,
-                            businessName: docSnap.data().businessName,
-                            email: docSnap.data().email
-                        });
-                    }
-                    else {
-                        console.log("document data doesn't exist");
-                    }
+        onAuthStateChanged(auth, async function(user) {
+            if(user){
+                console.log(user.uid);
+                //getting data from the firestore database
+                const docRef = doc(db, "users", user.uid);
+                const docSnap = await getDoc(docRef);
+
+                if(docSnap.exists()){
+                    console.log(docSnap.data());
+                    setUser({ 
+                        firstName: docSnap.data().firstName, 
+                        lastName: docSnap.data().lastName,
+                        businessName: docSnap.data().businessName,
+                        email: docSnap.data().email
+                    });
                 }
                 else {
-                    console.log("user logged out");
+                    console.log("document data doesn't exist");
                 }
-            }, []);
-
-            setExecuted({run: true});
-        }
-        
-    }, [execCheck]);
+            }
+            else {
+                console.log("user logged out");
+            }
+        }, []);  
+    }, []);
 
     return(
         <div className="dashboardPage profile">
