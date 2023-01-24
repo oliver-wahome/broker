@@ -40,6 +40,7 @@ function AddIncome(props) {
                     userId: user.uid
                 });
                 handleClose();
+                navigate("/income");
             }
             else {
                 console.log("not signed in");

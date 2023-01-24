@@ -32,7 +32,6 @@ function Income() {
                     income.push(doc.data());
                     console.log(income);
                 });
-
             }
             else {
                 console.log("user is not logged in");
