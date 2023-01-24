@@ -4,8 +4,12 @@ import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import DashboardNavbar from '../components/DashboardNavbar';
 import DashboardMenu from '../components/DashboardMenu';
+import { useNavigate } from 'react-router-dom';
 
 function Profile() {
+
+    let navigate = useNavigate();
+
     const [user, setUser] = useState({
         firstName: "",
         lastName: "",
@@ -37,9 +41,10 @@ function Profile() {
             }
             else {
                 console.log("user logged out");
+                navigate("/signin");
             }
         }, []);  
-    }, []);
+    });
 
     return(
         <div className="dashboardPage profile">
