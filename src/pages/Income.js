@@ -52,7 +52,7 @@ function Income() {
                         <AddIncome />
                     </div>
 
-                    <Table striped>
+                    <Table striped="columns">
                         <thead>
                             <tr>
                                 <th>#</th>
