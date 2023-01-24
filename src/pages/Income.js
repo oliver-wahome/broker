@@ -7,6 +7,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
+import Table from 'react-bootstrap/Table';
 
 function Income() {
 
@@ -50,15 +51,35 @@ function Income() {
                         <h1>Income Page</h1>
                         <AddIncome />
                     </div>
-                    {
-                        income.map((element, index) => {
-                            return(
-                                <div key={index}>
-                                    <p>{element.clientName}</p>
-                                </div>
-                            );
-                        })
-                    }
+
+                    <Table striped>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Client Name</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {
+                            income.map((element, index) => {
+                                return(
+                                    <tr key={index}>
+                                        <td>{index+1}</td>
+                                        <td>{element.clientName}</td>
+                                        <td>Ksh. {element.amount}</td>
+                                        <td>{element.date}</td>
+                                        <td>{element.time}</td>
+                                        <td>{element.description}</td>
+                                    </tr>
+                                );
+                            })
+                        }
+                        </tbody>
+                    </Table>
                 </div>
             </div>
         </div>
