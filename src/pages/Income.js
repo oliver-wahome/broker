@@ -12,8 +12,6 @@ function Income() {
 
     let navigate = useNavigate();
 
-    let incomeArrayData = [];
-
     const [income, setIncome] = useState([]);
 
     useEffect(() => {
@@ -21,16 +19,15 @@ function Income() {
         //checking if the user is logged. If so, getting their userId
         onAuthStateChanged(auth, async function(user){
             if(user){
-                console.log(user.uid);
+                setIncome([]);
                 //getting all document data from income subcollection
                 const incomeData = collection(db, "users", user.uid, "income");
                 const querySnapshot = await getDocs(incomeData);
 
                 //looping through all the documents in the income subcollection
-                querySnapshot.forEach((doc) => {
+                querySnapshot.forEach(function(doc){
                     //pushing each document to income state array
-                    income.push(doc.data());
-                    console.log(income);
+                    setIncome(current => [...current, doc.data()]);
                 });
             }
             else {
@@ -38,7 +35,8 @@ function Income() {
                 navigate("/signin");
             }
         });
-    });
+        
+    }, [navigate], [income]);
 
     return (
         <div className="dashboardPage income">
@@ -52,6 +50,15 @@ function Income() {
                         <h1>Income Page</h1>
                         <AddIncome />
                     </div>
+                    {
+                        income.map((element, index) => {
+                            return(
+                                <div key={index}>
+                                    <p>{element.clientName}</p>
+                                </div>
+                            );
+                        })
+                    }
                 </div>
             </div>
         </div>
