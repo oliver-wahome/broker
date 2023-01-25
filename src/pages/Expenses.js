@@ -46,6 +46,34 @@ function Expenses() {
                         <h1>Expenses Page</h1>
                         <AddExpenses />
                     </div>
+
+                    <Table striped="columns">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Expense</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {
+                            expense.map((element, index) => {
+                                let date = new Date(element.date).toDateString();
+                                return(
+                                    <tr key={index}>
+                                        <td>{index+1}</td>
+                                        <td>{element.expense}</td>
+                                        <td>Ksh. {element.amount}</td>
+                                        <td>{date}</td>
+                                        <td>{element.time}</td>
+                                    </tr>
+                                );
+                            })
+                        }
+                        </tbody>
+                    </Table>
                 </div>
             </div>
         </div>
