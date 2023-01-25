@@ -21,6 +21,7 @@ function Expenses() {
 
         onAuthStateChanged(auth, async function(user){
             if(user){
+                setExpense([]);
                 const expenseData = collection(db, "users", user.uid, "expense");
                 const querySnapshot = await getDocs(expenseData);
 
@@ -72,8 +73,8 @@ function Expenses() {
                                         <td>Ksh. {element.amount}</td>
                                         <td>{date}</td>
                                         <td>{element.time}</td>
-                                        <td><FontAwesomeIcon icon={faPen} /></td>
-                                        <td><FontAwesomeIcon icon={faTrash} /></td>
+                                        <td><FontAwesomeIcon className="rowBtn editBtn" icon={faPen} /></td>
+                                        <td><FontAwesomeIcon className="rowBtn deleteBtn" icon={faTrash} /></td>
                                     </tr>
                                 );
                             })

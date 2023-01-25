@@ -56,7 +56,7 @@ function Income() {
 
                     <Table striped="columns">
                         <thead>
-                            <tr>
+                            <tr className="text-center">
                                 <th>#</th>
                                 <th>Client Name</th>
                                 <th>Amount</th>
@@ -72,7 +72,7 @@ function Income() {
                             income.map((element, index) => {
                                 let date = new Date(element.date).toDateString();
                                 return(
-                                    <tr key={index}>
+                                    <tr className="text-center" key={index}>
                                         <td>{index+1}</td>
                                         <td>{element.clientName}</td>
                                         <td>Ksh. {element.amount}</td>
