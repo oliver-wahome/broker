@@ -27,9 +27,9 @@ function AddIncome(props) {
 
         //checking if user is logged in and getting their uid
         const auth = getAuth();
-        onAuthStateChanged(auth, async function(user) {
+        onAuthStateChanged(auth, (user) => {
             if(user){
-                // adding the income collection within the document
+                // adding the income collection within the user document
                 addDoc(collection(db, "users", user.uid, "income"), {
                     clientName: clientName.current.value,
                     amount: amount.current.value,
@@ -39,11 +39,11 @@ function AddIncome(props) {
                     userId: user.uid
                 });
                 handleClose();
+                //waiting 1sec before reloading the page to allow for the modal to close.
                 setTimeout(() => window.location.reload(), 1000);
             }
             else {
                 console.log("not logged in");
-                handleClose();
                 navigate("/signin");
             }
         });
