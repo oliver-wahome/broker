@@ -8,6 +8,8 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import Table from 'react-bootstrap/Table';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 function Expenses() {
     let navigate = useNavigate();
@@ -55,6 +57,8 @@ function Expenses() {
                                 <th>Amount</th>
                                 <th>Date</th>
                                 <th>Time</th>
+                                <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -68,6 +72,8 @@ function Expenses() {
                                         <td>Ksh. {element.amount}</td>
                                         <td>{date}</td>
                                         <td>{element.time}</td>
+                                        <td><FontAwesomeIcon icon={faPen} /></td>
+                                        <td><FontAwesomeIcon icon={faTrash} /></td>
                                     </tr>
                                 );
                             })

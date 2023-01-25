@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import Table from 'react-bootstrap/Table';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 function Income() {
 
@@ -61,6 +63,8 @@ function Income() {
                                 <th>Date</th>
                                 <th>Time</th>
                                 <th>Description</th>
+                                <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -75,6 +79,8 @@ function Income() {
                                         <td>{date}</td>
                                         <td>{element.time}</td>
                                         <td>{element.description}</td>
+                                        <td><FontAwesomeIcon icon={faPen} /></td>
+                                        <td><FontAwesomeIcon icon={faTrash} /></td>
                                     </tr>
                                 );
                             })
