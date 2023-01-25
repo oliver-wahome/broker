@@ -24,11 +24,10 @@ function AddIncome(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault();//preventing reloading of webpage onsubmit
-        
-        // console.log("handleSubmit working");
+
         //checking if user is logged in and getting their uid
         const auth = getAuth();
-        onAuthStateChanged(auth, (user) => {
+        onAuthStateChanged(auth, async function(user) {
             if(user){
                 // adding the income collection within the document
                 addDoc(collection(db, "users", user.uid, "income"), {
@@ -40,10 +39,10 @@ function AddIncome(props) {
                     userId: user.uid
                 });
                 handleClose();
-                navigate("/income");
+                setTimeout(() => window.location.reload(), 1000);
             }
             else {
-                console.log("not signed in");
+                console.log("not logged in");
                 handleClose();
                 navigate("/signin");
             }

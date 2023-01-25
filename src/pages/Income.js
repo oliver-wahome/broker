@@ -26,7 +26,7 @@ function Income() {
                 const querySnapshot = await getDocs(incomeData);
 
                 //looping through all the documents in the income subcollection
-                querySnapshot.forEach(function(doc){
+                querySnapshot.forEach((doc) => {
                     //pushing each document to income state array
                     setIncome(current => [...current, doc.data()]);
                 });
@@ -66,12 +66,13 @@ function Income() {
                         <tbody>
                         {
                             income.map((element, index) => {
+                                let date = new Date(element.date).toDateString();
                                 return(
                                     <tr key={index}>
                                         <td>{index+1}</td>
                                         <td>{element.clientName}</td>
                                         <td>Ksh. {element.amount}</td>
-                                        <td>{element.date}</td>
+                                        <td>{date}</td>
                                         <td>{element.time}</td>
                                         <td>{element.description}</td>
                                     </tr>
