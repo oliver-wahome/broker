@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import { addDoc, collection } from 'firebase/firestore';
+import { doc, setDoc, collection } from 'firebase/firestore';
 import { db } from '../firebase';
 
 function AddIncome(props) {
@@ -27,17 +27,20 @@ function AddIncome(props) {
 
         //checking if user is logged in and getting their uid
         const auth = getAuth();
-        onAuthStateChanged(auth, (user) => {
+        onAuthStateChanged(auth, async function(user){
             if(user){
                 // adding the income collection within the user document
-                addDoc(collection(db, "users", user.uid, "income"), {
+                const incomeDoc = doc(collection(db, "users", user.uid, "income"));
+                setDoc(incomeDoc, {
                     clientName: clientName.current.value,
                     amount: amount.current.value,
                     date: date.current.value,
                     time: time.current.value,
                     description: description.current.value,
-                    userId: user.uid
+                    userId: user.uid,
+                    incomeId: incomeDoc.id
                 });
+
                 handleClose();
                 //waiting 1sec before reloading the page to allow for the modal to close.
                 setTimeout(() => window.location.reload(), 1000);

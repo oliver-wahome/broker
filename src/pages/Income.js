@@ -80,7 +80,7 @@ function Income() {
                                         <td>{element.time}</td>
                                         <td>{element.description}</td>
                                         <td><EditRow /></td>
-                                        <td><DeleteRow /></td>
+                                        <td><DeleteRow userId={element.userId} incomeId={element.id}/></td>
                                     </tr>
                                 );
                             })

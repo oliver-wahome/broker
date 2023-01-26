@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import { addDoc, collection } from 'firebase/firestore';
+import { doc, setDoc, collection } from 'firebase/firestore';
 import { db } from '../firebase';
 
 function AddExpenses(props) {
@@ -29,11 +29,14 @@ function AddExpenses(props) {
         onAuthStateChanged(auth, (user) => {
             if(user){
                 //adding the expense subcollection to the user document
-                addDoc(collection(db, "users", user.uid, "expense"), {
+                const expenseDoc = doc(collection(db, "users", user.uid, "expense"));
+                setDoc(expenseDoc, {
                     expense: expense.current.value,
                     amount: amount.current.value,
                     date: date.current.value,
-                    time: time.current.value
+                    time: time.current.value,
+                    userId: user.uid,
+                    expenseId: expenseDoc.id
                 });
 
                 handleClose();

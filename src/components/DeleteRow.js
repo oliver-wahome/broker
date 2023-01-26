@@ -5,12 +5,18 @@ import '../pageStyles/Dashboard.css';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-
-function DeleteRow(){
+function DeleteRow(props){
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const handleDelete = async function(){
+        //await deleteDoc(doc(db, "users", userId, "income", incomeId));
+        console.log(props.userId," ", props.incomeId);
+        handleClose();
+        //setTimeout(window.location.reload(), 1000);
+    }
 
     return(
         <>
@@ -21,7 +27,7 @@ function DeleteRow(){
                     Are you sure you want to delete this row?
                 </Modal.Body>
                 <Modal.Footer className="d-flex justify-content-center">
-                    <Button variant="danger" onClick={handleClose}>
+                    <Button variant="danger" onClick={handleDelete}>
                         Yes
                     </Button>
                     <Button variant="secondary" onClick={handleClose}>
