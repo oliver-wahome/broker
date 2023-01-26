@@ -4,6 +4,8 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import '../pageStyles/Dashboard.css';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { doc, deleteDoc } from 'firebase/firestore';
+import { db } from '../firebase';
 
 function DeleteRow(props){
     const [show, setShow] = useState(false);
@@ -11,11 +13,11 @@ function DeleteRow(props){
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const handleDelete = async function(){
-        //await deleteDoc(doc(db, "users", userId, "income", incomeId));
-        console.log(props.userId," ", props.incomeId);
+    const handleDelete = async () => {
+        await deleteDoc(doc(db, "users", props.userId, props.subCollection, props.docId));
+        //console.log(props.subCollection," ", props.userId," ", props.docId);
         handleClose();
-        //setTimeout(window.location.reload(), 1000);
+        setTimeout(() => window.location.reload(), 1000);
     }
 
     return(

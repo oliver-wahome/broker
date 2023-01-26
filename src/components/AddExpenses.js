@@ -26,11 +26,11 @@ function AddExpenses(props) {
 
         //checking if the user is logged and getting their uid
         const auth = getAuth();
-        onAuthStateChanged(auth, (user) => {
+        onAuthStateChanged(auth, async (user) => {
             if(user){
                 //adding the expense subcollection to the user document
-                const expenseDoc = doc(collection(db, "users", user.uid, "expense"));
-                setDoc(expenseDoc, {
+                const expenseDoc = doc(collection(db, "users", user.uid, "expenses"));
+                await setDoc(expenseDoc, {
                     expense: expense.current.value,
                     amount: amount.current.value,
                     date: date.current.value,
@@ -65,22 +65,22 @@ function AddExpenses(props) {
                     <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3" controlId="expense">
                             <Form.Label>Expense</Form.Label>
-                            <Form.Control ref={expense} type="text" placeholder="Enter expense" />
+                            <Form.Control ref={expense} type="text" placeholder="Enter expense" required/>
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="expenseAmount">
                             <Form.Label>Amount</Form.Label>
-                            <Form.Control ref={amount} type="number" placeholder="Enter expense amount" />
+                            <Form.Control ref={amount} type="number" placeholder="Enter expense amount" required/>
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="expenseDate">
                             <Form.Label>Date</Form.Label>
-                            <Form.Control ref={date} type="date" />
+                            <Form.Control ref={date} type="date" required/>
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="expenseTime">
                             <Form.Label>Time</Form.Label>
-                            <Form.Control ref={time} type="time" placeholder="Enter time of expense payment" />
+                            <Form.Control ref={time} type="time" placeholder="Enter time of expense payment" required/>
                         </Form.Group>
                         
                         <Button variant="primary" type="submit" className="float-end">

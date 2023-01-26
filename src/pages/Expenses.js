@@ -3,13 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import DashboardNavbar from '../components/DashboardNavbar';
 import DashboardMenu from '../components/DashboardMenu';
 import AddExpenses from '../components/AddExpenses';
+import DeleteRow from '../components/DeleteRow';
+import EditRow from '../components/EditRow';
 import '../pageStyles/Dashboard.css';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import Table from 'react-bootstrap/Table';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 function Expenses() {
     let navigate = useNavigate();
@@ -22,7 +22,7 @@ function Expenses() {
         onAuthStateChanged(auth, async function(user){
             if(user){
                 setExpense([]);
-                const expenseData = collection(db, "users", user.uid, "expense");
+                const expenseData = collection(db, "users", user.uid, "expenses");
                 const querySnapshot = await getDocs(expenseData);
 
                 //looping through all expense subcollection documents
@@ -73,8 +73,8 @@ function Expenses() {
                                         <td>Ksh. {element.amount}</td>
                                         <td>{date}</td>
                                         <td>{element.time}</td>
-                                        <td><FontAwesomeIcon className="rowBtn editBtn" icon={faPen} /></td>
-                                        <td><FontAwesomeIcon className="rowBtn deleteBtn" icon={faTrash} /></td>
+                                        <td><EditRow /></td>
+                                        <td><DeleteRow subCollection={"expenses"} userId={element.userId} docId={element.expenseId} /></td>
                                     </tr>
                                 );
                             })

@@ -19,7 +19,7 @@ function Profile() {
 
     useEffect(() => {
         const auth = getAuth();
-        onAuthStateChanged(auth, async function(user) {
+        onAuthStateChanged(auth, async (user) => {
             if(user){
                 console.log(user.uid);
                 //getting data from the firestore database

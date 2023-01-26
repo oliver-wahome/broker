@@ -27,11 +27,11 @@ function AddIncome(props) {
 
         //checking if user is logged in and getting their uid
         const auth = getAuth();
-        onAuthStateChanged(auth, async function(user){
+        onAuthStateChanged(auth, async (user) => {
             if(user){
                 // adding the income collection within the user document
                 const incomeDoc = doc(collection(db, "users", user.uid, "income"));
-                setDoc(incomeDoc, {
+                await setDoc(incomeDoc, {
                     clientName: clientName.current.value,
                     amount: amount.current.value,
                     date: date.current.value,
@@ -66,27 +66,27 @@ function AddIncome(props) {
                     <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3" controlId="clientName">
                             <Form.Label>Client Name</Form.Label>
-                            <Form.Control ref={clientName} type="text" placeholder="Enter client name" />
+                            <Form.Control ref={clientName} type="text" placeholder="Enter client name" required/>
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="incomeAmount">
                             <Form.Label>Amount</Form.Label>
-                            <Form.Control ref={amount} type="number" placeholder="Enter income amount" />
+                            <Form.Control ref={amount} type="number" placeholder="Enter income amount" required/>
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="incomeDate">
                             <Form.Label>Date</Form.Label>
-                            <Form.Control ref={date} type="date" />
+                            <Form.Control ref={date} type="date" required/>
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="incomeTime">
                             <Form.Label>Time</Form.Label>
-                            <Form.Control ref={time} type="time" placeholder="Enter time of income payment" />
+                            <Form.Control ref={time} type="time" placeholder="Enter time of income payment" required/>
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="incomeDescription">
                             <Form.Label>Description</Form.Label>
-                            <Form.Control ref={description} type="text" placeholder="Enter a description of the income" />
+                            <Form.Control ref={description} type="text" placeholder="Enter a description of the income" required/>
                         </Form.Group>
                         
                         <Button variant="primary" type="submit" className="float-end">
