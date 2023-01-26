@@ -73,7 +73,7 @@ function Expenses() {
                                         <td>Ksh. {element.amount}</td>
                                         <td>{date}</td>
                                         <td>{element.time}</td>
-                                        <td><EditRow /></td>
+                                        <td><EditRow subCollection={"expenses"} userId={element.userId} docId={element.expenseId} /></td>
                                         <td><DeleteRow subCollection={"expenses"} userId={element.userId} docId={element.expenseId} /></td>
                                     </tr>
                                 );
