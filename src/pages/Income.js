@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import DashboardNavbar from '../components/DashboardNavbar';
 import DashboardMenu from '../components/DashboardMenu';
 import AddIncome from '../components/AddIncome';
+import DeleteRow from '../components/DeleteRow';
+import EditRow from '../components/EditRow';
 import '../pageStyles/Dashboard.css';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import Table from 'react-bootstrap/Table';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 function Income() {
 
@@ -56,7 +56,7 @@ function Income() {
 
                     <Table striped="columns">
                         <thead>
-                            <tr className="text-center">
+                            <tr>
                                 <th>#</th>
                                 <th>Client Name</th>
                                 <th>Amount</th>
@@ -72,15 +72,15 @@ function Income() {
                             income.map((element, index) => {
                                 let date = new Date(element.date).toDateString();
                                 return(
-                                    <tr className="text-center" key={index}>
+                                    <tr key={index}>
                                         <td>{index+1}</td>
                                         <td>{element.clientName}</td>
                                         <td>Ksh. {element.amount}</td>
                                         <td>{date}</td>
                                         <td>{element.time}</td>
                                         <td>{element.description}</td>
-                                        <td><FontAwesomeIcon icon={faPen} /></td>
-                                        <td><FontAwesomeIcon icon={faTrash} /></td>
+                                        <td><EditRow /></td>
+                                        <td><DeleteRow /></td>
                                     </tr>
                                 );
                             })
