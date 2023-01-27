@@ -26,7 +26,6 @@ function Dashboard() {
                         text: currentWeather.condition.text,
                         temp: currentWeather.temp_c
                     });
-                    console.log(currentWeather);
                 })
                 .catch(error => {
                     console.log(error);
