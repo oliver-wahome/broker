@@ -28,7 +28,7 @@ function Dashboard() {
                     });
                 })
                 .catch(error => {
-                    console.log(error);
+                    console.log(error.message);
                 })
         }
 
@@ -42,7 +42,7 @@ function Dashboard() {
                     setCity(currentCity);
                 })
                 .catch((error) => {
-                    console.log(error);
+                    console.log(error.message);
                 })
             
             fetchWeather();
