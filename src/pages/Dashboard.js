@@ -63,7 +63,7 @@ function Dashboard() {
                     <h1>Dashboard Page</h1>
 
                     <p>{city}</p>
-                    <img src={weather.icon} alt="weather-api-icon" height="40px" width="40px" />
+                    <img src={weather.icon} alt="weather-api-icon" height="50px" width="50px" />
                     <p>{weather.temp}&deg;C and {weather.text}</p>
                 </div>
             </div>
