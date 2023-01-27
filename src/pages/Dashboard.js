@@ -41,7 +41,6 @@ function Dashboard() {
                     const currentCity = res.data.city;
                     weather_api_url = 'http://api.weatherapi.com/v1/current.json?key=2e7f2c25ccc4417c80272145222312&q='+currentCity+'&aqi=yes';
                     setCity(currentCity);
-                    console.log(res.data.city);
                 })
                 .catch((error) => {
                     console.log(error);
