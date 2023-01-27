@@ -1,4 +1,5 @@
 import React from 'react';
+import Chart from 'chart.js/auto';
 import { Line } from 'react-chartjs-2';
 import DashboardNavbar from '../components/DashboardNavbar';
 import DashboardMenu from '../components/DashboardMenu';
