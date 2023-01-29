@@ -32,18 +32,7 @@ function EditRow(props){
     const handleSubmit = (event) => {
         event.preventDefault();//preventing the page from reloading onsubmit
 
-        //checking if the user is logged and getting their uid
-        const auth = getAuth();
-        onAuthStateChanged(auth, async (user) => {
-            if(user){
-                //adding the expense subcollection to the user document
-                handleClose();
-            }
-            else {
-                console.log("not logged in");
-                navigate("/signin");
-            }
-        });
+        
     }
 
     if(props.subCollection === "income"){
