@@ -79,7 +79,7 @@ function Income() {
                                         <td>{date}</td>
                                         <td>{element.time}</td>
                                         <td>{element.description}</td>
-                                        <td><EditRow /></td>
+                                        <td><EditRow subCollection={"income"} userId={element.userId} docId={element.incomeId}/></td>
                                         <td><DeleteRow subCollection={"income"} userId={element.userId} docId={element.incomeId}/></td>
                                     </tr>
                                 );
