@@ -15,6 +15,7 @@ function Income() {
 
     let navigate = useNavigate();
 
+    const [totalIncome, setTotalIncome] = useState(0);
     const [income, setIncome] = useState([]);
     const [userId, setUserId] = useState('0');
 
@@ -34,6 +35,9 @@ function Income() {
                     //pushing each document to income state array
                     setIncome(current => [...current, doc.data()]);
                 });
+
+                //calculating the total income and printing it to screen
+                getTotalIncome();
             }
             else {
                 console.log("user is not logged in");
@@ -44,18 +48,16 @@ function Income() {
     }, [navigate, userId], [income]);
 
     const getTotalIncome = async () => {
-        //console.log(`getTotalIncome function ${userId}`);
+        let totIncome = 0;
         const incomeData = query(collection(db, "users", userId, "income"));
         const querySnapshot = await getDocs(incomeData);
 
-        let totalIncome = 0;
-
         querySnapshot.forEach((doc) => {
             const docIncome = parseInt(doc.data().amount);
-            totalIncome += docIncome;
+            totIncome += docIncome;
         });
 
-        console.log(`the total income is: ${totalIncome}`);
+        setTotalIncome(totIncome);
     }
 
     return (
@@ -67,7 +69,7 @@ function Income() {
                 <DashboardMenu />
                 <div className="dashboardBody">
                     <div className="dashboardBodyHeader">
-                        <h1 onClick={getTotalIncome}>Income Page</h1>
+                        <h1>Income Page</h1>
                         <AddIncome />
                     </div>
 
@@ -104,6 +106,8 @@ function Income() {
                         }
                         </tbody>
                     </Table>
+
+                    <p>The total income amount = Ksh. {totalIncome}</p>
                 </div>
             </div>
         </div>
