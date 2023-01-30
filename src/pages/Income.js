@@ -7,7 +7,7 @@ import EditRow from '../components/EditRow';
 import '../pageStyles/Dashboard.css';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import Table from 'react-bootstrap/Table';
 
@@ -16,6 +16,7 @@ function Income() {
     let navigate = useNavigate();
 
     const [income, setIncome] = useState([]);
+    const [userId, setUserId] = useState('0');
 
     useEffect(() => {
         const auth = getAuth();
@@ -23,8 +24,9 @@ function Income() {
         onAuthStateChanged(auth, async function(user){
             if(user){
                 setIncome([]);
+                setUserId(user.uid);
                 //getting all document data from income subcollection
-                const incomeData = collection(db, "users", user.uid, "income");
+                const incomeData = collection(db, "users", userId, "income");
                 const querySnapshot = await getDocs(incomeData);
 
                 //looping through all the documents in the income subcollection
@@ -39,7 +41,22 @@ function Income() {
             }
         });
         
-    }, [navigate], [income]);
+    }, [navigate, userId], [income]);
+
+    const getTotalIncome = async () => {
+        //console.log(`getTotalIncome function ${userId}`);
+        const incomeData = query(collection(db, "users", userId, "income"));
+        const querySnapshot = await getDocs(incomeData);
+
+        let totalIncome = 0;
+
+        querySnapshot.forEach((doc) => {
+            const docIncome = parseInt(doc.data().amount);
+            totalIncome += docIncome;
+        });
+
+        console.log(`the total income is: ${totalIncome}`);
+    }
 
     return (
         <div className="dashboardPage income">
@@ -50,7 +67,7 @@ function Income() {
                 <DashboardMenu />
                 <div className="dashboardBody">
                     <div className="dashboardBodyHeader">
-                        <h1>Income Page</h1>
+                        <h1 onClick={getTotalIncome}>Income Page</h1>
                         <AddIncome />
                     </div>
 
