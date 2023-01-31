@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Chart from 'chart.js/auto';
 import { Line } from 'react-chartjs-2';
 import DashboardNavbar from '../components/DashboardNavbar';
 import DashboardMenu from '../components/DashboardMenu';
 import '../pageStyles/Dashboard.css';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 function Overview(){
 
@@ -26,6 +28,22 @@ function Overview(){
             },
         ],
     };
+
+    let navigate = useNavigate();
+
+    useEffect(() => {
+        const auth = getAuth();
+
+        onAuthStateChanged(auth, async (user) => {
+            if(user){
+                console.log("user is logged in");
+            }
+            else {
+                console.log("user is not logged in");
+                navigate("/register");
+            }
+        });
+    }, [navigate])
 
     return(
         <div className="dashboardPage overview">
