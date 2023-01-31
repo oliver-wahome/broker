@@ -14,7 +14,7 @@ function Dashboard() {
     });
 
     useEffect(() => {
-        let weather_api_url = '';
+        let weather_api_url = '';        
 
         //function to get the weather from theweatherapi using the location fetched from geoiplookup.io
         function fetchWeather(){

@@ -7,7 +7,7 @@ import EditRow from '../components/EditRow';
 import '../pageStyles/Dashboard.css';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import Table from 'react-bootstrap/Table';
 
@@ -18,6 +18,19 @@ function Income() {
     const [totalIncome, setTotalIncome] = useState(0);
     const [income, setIncome] = useState([]);
     const [userId, setUserId] = useState('0');
+
+    const getTotalIncome = async () => {
+        let totIncome = 0;
+        const incomeData = collection(db, "users", userId, "income");
+        const querySnapshot = await getDocs(incomeData);
+
+        querySnapshot.forEach((doc) => {
+            const docIncome = parseInt(doc.data().amount);
+            totIncome += docIncome;
+        });
+
+        setTotalIncome(totIncome);
+    }
 
     useEffect(() => {
         const auth = getAuth();
@@ -45,20 +58,7 @@ function Income() {
             }
         });
         
-    }, [navigate, userId], [income]);
-
-    const getTotalIncome = async () => {
-        let totIncome = 0;
-        const incomeData = query(collection(db, "users", userId, "income"));
-        const querySnapshot = await getDocs(incomeData);
-
-        querySnapshot.forEach((doc) => {
-            const docIncome = parseInt(doc.data().amount);
-            totIncome += docIncome;
-        });
-
-        setTotalIncome(totIncome);
-    }
+    }, []);
 
     return (
         <div className="dashboardPage income">
@@ -107,7 +107,7 @@ function Income() {
                         </tbody>
                     </Table>
 
-                    <p>The total income amount = Ksh. {totalIncome}</p>
+                    <p>Total Income = Ksh. {totalIncome}</p>
                 </div>
             </div>
         </div>
