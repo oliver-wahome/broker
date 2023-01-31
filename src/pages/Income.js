@@ -54,7 +54,7 @@ function Income() {
             }
             else {
                 console.log("user is not logged in");
-                navigate("/signin");
+                navigate("/register");
             }
         });
         

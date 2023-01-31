@@ -12,20 +12,20 @@ function Overview(){
     const data = {
         labels: labels,
         datasets: [
-          {
-            label: "Income",
-            backgroundColor: "rgb(255, 99, 132)",
-            borderColor: "rgb(255, 99, 132)",
-            data: [50000, 80000, 65000, 100000, 130000, 90000, 150000],
-          },
-          {
-            label: "Expenses",
-            backgroundColor: "blue",
-            borderColor: "blue",
-            data: [20000, 95000, 40000, 25000, 99000, 120000, 125000],
-          },
+            {
+              label: "Income",
+              backgroundColor: "rgb(255, 99, 132)",
+              borderColor: "rgb(255, 99, 132)",
+              data: [50000, 80000, 65000, 100000, 130000, 90000, 150000],
+            },
+            {
+              label: "Expenses",
+              backgroundColor: "blue",
+              borderColor: "blue",
+              data: [20000, 95000, 40000, 25000, 99000, 120000, 125000],
+            },
         ],
-      };
+    };
 
     return(
         <div className="dashboardPage overview">
