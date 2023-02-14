@@ -24,12 +24,13 @@ function Income() {
         const incomeData = collection(db, "users", userId, "income");
         const querySnapshot = await getDocs(incomeData);
 
-        querySnapshot.forEach((doc) => {
+        await querySnapshot.forEach((doc) => {
             const docIncome = parseInt(doc.data().amount);
             totIncome += docIncome;
         });
 
         setTotalIncome(totIncome);
+        console.log(totIncome);
     }
 
     useEffect(() => {
@@ -44,13 +45,14 @@ function Income() {
                 const querySnapshot = await getDocs(incomeData);
 
                 //looping through all the documents in the income subcollection
-                querySnapshot.forEach((doc) => {
+                await querySnapshot.forEach((doc) => {
                     //pushing each document to income state array
                     setIncome(current => [...current, doc.data()]);
                 });
 
                 //calculating the total income and printing it to screen
                 getTotalIncome();
+                console.log("after getting total income");
             }
             else {
                 console.log("user is not logged in");
@@ -58,7 +60,7 @@ function Income() {
             }
         });
         
-    }, []);
+    }, [navigate, userId]);
 
     return (
         <div className="dashboardPage income">

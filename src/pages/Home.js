@@ -38,8 +38,8 @@ function Home() {
             Your Finances <br />
           </h1>
           <p className="cellOneRow Description">
-            We are bringing banking application to a new level of
-            technology never seen before
+            Affording easy access to world class financial management services
+            for small businesses & the self-employed
           </p>
 
           <form onSubmit={handleSubmit} className="homeForm cellOneRow">
