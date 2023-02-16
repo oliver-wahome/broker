@@ -33,18 +33,15 @@ function Register(){
                 email: email,
                 userId: userId
             }).then(() => {
-                console.log(email + " "+ password + " " + user.uid);
+                console.log(email + " "+ password + " " + userId);
                 navigate("/onboarding");//redirecting to the dashboard
             }).catch((error) => {
                 console.log(error.message);
-            })
+            });
   
         })
         .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-
-            console.log(errorCode + " "+errorMessage);
+            console.log(error.code + " " + error.message);
         });
 
         // setting the both input values to nothing after submitting
