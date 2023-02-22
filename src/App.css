@@ -1,15 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
-
-* {
-    box-sizing: border-box;
-    font-family: 'Kanit', sans-serif;
-}
-
 /* .appContainer {
     padding: 0 5vw;
 } */
 
 .pageContainer {
+    min-height: 100vh;
     padding: 0 5vw;
 }
 

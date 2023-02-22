@@ -57,7 +57,7 @@ function HomeSection() {
                         Your Finances <br />
                     </h1>
                     <p className="cellOneRow Description">
-                        Affording easy access to world class financial management services
+                        Providing easy access to world class financial management services
                         for small businesses & the self-employed
                     </p>
 
