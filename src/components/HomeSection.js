@@ -67,6 +67,7 @@ function HomeSection() {
                         <button className="subBtn">subscribe</button>
                     </form>
                 </div>
+
                 <div className="homeCell cellTwo"></div>
                 <div className="homeCell cellThree"></div>
 
