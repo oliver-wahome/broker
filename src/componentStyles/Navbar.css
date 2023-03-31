@@ -87,5 +87,8 @@
     .signinBtn{
         display: none;
     }
-    
+
+    .regBtn {
+        display: none;
+    }
 }
