@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRef } from 'react';
-import brokerLogo from '../images/brokerIcon-amethyst.png';
+import brokerLogo from '../images/brokerLogo.png';
 import googleIcon from '../images/googleIcon.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { db } from '../firebase';

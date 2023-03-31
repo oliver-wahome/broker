@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../firebase';
 import { getAuth, signOut } from "firebase/auth";
-import logo from '../images/brokerIcon-amethyst.png';
+import logo from '../images/brokerLogo.png';
 import '../pageStyles/Dashboard.css';
 import '../componentStyles/Navbar.css';
 
