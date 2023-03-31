@@ -60,6 +60,12 @@
     border: 1px solid #9057c5;
 }
 
+.navbarMenu {
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
 .logoutBtn {
     color: #ff3333;
     border: 1px solid #ff3333;
@@ -91,4 +97,8 @@
     .regBtn {
         display: none;
     }
+
+    /* .navbarMenu {
+        display: block;
+    } */
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../images/brokerIcon-amethyst.png';
+import navMenuIcon from '../images/hamburgerMenu.png';
 import { Link } from 'react-router-dom';
 import '../componentStyles/Navbar.css';
 import '../App.css';
@@ -23,6 +24,7 @@ function Navbar() {
             <div className="buttons">
                 <Link to="/signin" className="button signinBtn">Sign in</Link>
                 <Link to="/register" className="button regBtn">Register</Link>
+                <img className="navbarMenu" src={navMenuIcon} alt="navbarHamburgerMenu" />
             </div>
         </div>
     );
