@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../images/brokerIcon-amethyst.png';
+import logo from '../images/brokerLogo.png';
 import navMenuIcon from '../images/hamburgerMenu.png';
 import { Link } from 'react-router-dom';
 import '../componentStyles/Navbar.css';
