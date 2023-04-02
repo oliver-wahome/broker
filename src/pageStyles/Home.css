@@ -183,5 +183,15 @@
 }
 
 @media (max-width: 425px){
-
+    .homeForm {
+        flex-direction: column;
+    }
+    .subInput {
+        width: 70%;
+        margin: 5px 0;
+    }
+    .subBtn {
+        width: 70%;
+        margin: 5px 0;
+    }
 }
