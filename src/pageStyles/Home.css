@@ -195,4 +195,14 @@
         width: 75%;
         margin: 5px 0;
     }
+
+    .cellFour {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .cellFourColumn {
+        width: 60%;
+        margin: 5px 0;
+    }
 }
