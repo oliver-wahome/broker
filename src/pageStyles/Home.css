@@ -187,11 +187,11 @@
         flex-direction: column;
     }
     .subInput {
-        width: 70%;
+        width: 75%;
         margin: 5px 0;
     }
     .subBtn {
-        width: 70%;
+        width: 75%;
         margin: 5px 0;
     }
 }
